@@ -1,55 +1,52 @@
 <?php
- 
+// routes/web.php
+
+use App\Http\Controllers\AlternatifController;
+use App\Http\Controllers\AlternatifKontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
- 
+use App\Http\Controllers\KriteriaController;
+use App\Models\Alternatif;
+
 Route::get('/', function () {
-    return view('home');
-})->name('home');
- 
-Route::get('/about', [UserController::class, 'about'])->name('about');
- 
+    return view('welcome');
+});
+
 Route::controller(AuthController::class)->group(function () {
+    // Autentikasi
     Route::get('register', 'register')->name('register');
     Route::post('register', 'registerSave')->name('register.save');
- 
+
     Route::get('login', 'login')->name('login');
     Route::post('login', 'loginAction')->name('login.action');
- 
+
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
- 
-//Normal Users Routes List
-Route::middleware(['auth', 'user-access:user'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-    Route::get('/profile', [UserController::class, 'userprofile'])->name('profile');
-});
- 
-//Admin Routes List
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
- 
-    Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
- 
-    Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
-    Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin/products/create');
-    Route::post('/admin/products/store', [ProductController::class, 'store'])->name('admin/products/store');
-    Route::get('/admin/products/show/{id}', [ProductController::class, 'show'])->name('admin/products/show');
-    Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
-    Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
-    Route::delete('/admin/products/destroy/{id}', [ProductController::class, 'destroy'])->name('admin/products/destroy');
+
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::controller(KriteriaController::class)->prefix('kriterias')->group(function () {
+        Route::get('', 'index')->name('kriterias.index');
+        Route::get('create', 'create')->name('kriterias.create');
+        Route::post('store', 'store')->name('kriterias.store');
+        Route::get('show/{id}', 'show')->name('kriterias.show');
+        Route::get('edit/{id}', 'edit')->name('kriterias.edit');
+        Route::put('edit/{id}', 'update')->name('kriterias.update');
+        Route::delete('destroy/{id}', 'destroy')->name('kriterias.destroy');
+    });
+
+    Route::controller(AlternatifController::class)->prefix('alternatifs')->group(function () {
+        Route::get('', 'index')->name('alternatifs.index');
+        Route::get('create', 'create')->name('alternatifs.create');
+        Route::post('store', 'store')->name('alternatifs.store');
+        Route::get('show/{id}', 'show')->name('alternatifs.show');
+        Route::get('edit/{id}', 'edit')->name('alternatifs.edit');
+        Route::put('edit/{id}', 'update')->name('alternatifs.update');
+        Route::delete('destroy/{id}', 'destroy')->name('alternatifs.destroy');
+    });
+
+    Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 });

@@ -1,75 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
- 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Register</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SB Admin 2 - Register</title>
+  <!-- Custom fonts for this template-->
+  <link href="{{ asset('admin_assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="{{ asset('admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
+  <style>
+    .back-to-about {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+  </style>
 </head>
- 
-<body>
-    <section class="bg-gray-50 dark:bg-gray-900">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <div class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                Register
-            </div>
-            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                        Create and account
-                    </h1>
-                    <form action="{{ route('register.save') }}" method="POST" class="space-y-4 md:space-y-6">
-                        @csrf
-                        <div>
-                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your name</label>
-                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name" required="">
-                            @error('name')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
-                            @error('email')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                            @error('password')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                            <input type="confirm-password" name="password_confirmation" id="password_confirmation" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                            @error('password_confirmation')
-                            <span class="text-red-600">{{ $message }}</span>
-                            @enderror
-                        </div>
-                        <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
-                            </div>
-                            <div class="ml-3 text-sm">
-                                <label for="terms" class="font-light text-gray-500 dark:text-gray-300">I accept the <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="#">Terms and Conditions</a></label>
-                            </div>
-                        </div>
-                        <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create an account</button>
-                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                            Already have an account? <a href="{{ route('login') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a>
-                        </p>
-                    </form>
+<body class="bg-gradient-primary">
+  <div class="container">
+    <!-- Back to About Button -->
+    <div class="back-to-about">
+      <a class="btn btn-secondary" href="{{ url('/#about') }}">Back to About</a>
+    </div>
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+        <div class="row">
+          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+          <div class="col-lg-7">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+              </div>
+              <form action="{{ route('register.save') }}" method="POST" class="user">
+                @csrf
+                <div class="form-group">
+                  <input name="name" type="text" class="form-control form-control-user @error('name')is-invalid @enderror" id="exampleInputName" placeholder="Name">
+                  @error('name')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                  @enderror
                 </div>
+                <div class="form-group">
+                  <input name="email" type="email" class="form-control form-control-user @error('email')is-invalid @enderror" id="exampleInputEmail" placeholder="Email Address">
+                  @error('email')
+                    <span class="invalid-feedback">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input name="password" type="password" class="form-control form-control-user @error('password')is-invalid @enderror" id="exampleInputPassword" placeholder="Password">
+                    @error('password')
+                      <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                  </div>
+                  <div class="col-sm-6">
+                    <input name="password_confirmation" type="password" class="form-control form-control-user @error('password_confirmation')is-invalid @enderror" id="exampleRepeatPassword" placeholder="Repeat Password">
+                    @error('password_confirmation')
+                      <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-user btn-block">Register Account</button>
+              </form>
+              <hr>
+              <div class="text-center">
+                <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="{{ asset('admin_assets/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('admin_assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="{{ asset('admin_assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+  <!-- Custom scripts for all pages-->
+  <script src="{{ asset('admin_assets/js/sb-admin-2.min.js') }}"></script>
 </body>
- 
 </html>

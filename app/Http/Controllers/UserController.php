@@ -17,4 +17,12 @@ class UserController extends Controller
     {
         return view('about');
     }
+
+    public function dashboard(){
+        return view('dashboard');
+    }
+
+    public function products(){
+        return view('prooducts');
+    }
 }
