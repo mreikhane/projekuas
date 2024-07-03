@@ -6,26 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin 2 - Login</title>
+  <title>Login</title>
   <!-- Custom fonts for this template-->
   <link href="{{ asset('admin_assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  
   <!-- Custom styles for this template-->
   <link href="{{ asset('admin_assets/css/sb-admin-2.min.css') }}" rel="stylesheet">
-  <style>
-    .back-to-about {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-    }
-  </style>
 </head>
 <body class="bg-gradient-primary">
   <div class="container">
-    <!-- Back to About Button -->
-    <div class="back-to-about">
-      <a class="btn btn-secondary" href="{{ url('/#about') }}">Back to About</a>
-    </div>
     <!-- Outer Row -->
     <div class="row justify-content-center">
       <div class="col-xl-10 col-lg-12 col-md-9">
@@ -59,9 +49,10 @@
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input name="remember" type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                        <label class="custom-control-label" for="customCheck">Remember
+                          Me</label>
                       </div>
-                    </div>
+                    </div> 
                     <button type="submit" class="btn btn-primary btn-block btn-user">Login</button>
                   </form>
                   <hr>

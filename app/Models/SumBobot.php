@@ -5,14 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kriteria extends Model
+class SumBobot extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'nama_kriteria',
-        'kode',
-        'bobot',
-        'label'
-    ];
+    protected $table = 'sum_bobot';
 }

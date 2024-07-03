@@ -9,10 +9,15 @@ class Alternatif extends Model
 {
     use HasFactory;
 
-    protected $table = 'alternatif'; // Tentukan nama tabel jika tidak dalam bentuk jamak dari nama model
+    protected $table = 'alternatifs'; // Tentukan nama tabel jika tidak dalam bentuk jamak dari nama model
 
     protected $fillable = [
-        'nama_alternatif',
-        'kode_alternatif',
+        'kode',
+        'nama',
+        'fasilitas',
+        'harga',
+        'keamanan',
+        'kebersihan',
+        'jarak',
     ];
 }

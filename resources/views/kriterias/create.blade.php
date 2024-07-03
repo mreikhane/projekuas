@@ -14,7 +14,7 @@
             </div>
             <div class="col mb-3">
                 <label class="form-label">Kode Kriteria</label>
-                <input type="text" name="kode_kriteria" class="form-control" placeholder="Kode Kriteria" required>
+                <input type="text" name="kode" class="form-control" placeholder="Kode Kriteria" required>
             </div>
         </div>
         <div class="row">
@@ -24,7 +24,7 @@
             </div>
             <div class="col mb-3">
                 <label class="form-label">Description</label>
-                <textarea class="form-control" name="description" placeholder="Description" required></textarea>
+                <textarea class="form-control" name="label" placeholder="Description" required></textarea>
             </div>
         </div>
         <div class="row">

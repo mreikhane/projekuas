@@ -1,19 +1,19 @@
 <?php
-// routes/web.php
 
 use App\Http\Controllers\AlternatifController;
-use App\Http\Controllers\AlternatifKontroller;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KriteriaController;
-use App\Models\Alternatif;
+use App\Http\Controllers\PerhitunganController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('about', function () {
+    return view('about');
+});
 
 Route::controller(AuthController::class)->group(function () {
-    // Autentikasi
     Route::get('register', 'register')->name('register');
     Route::post('register', 'registerSave')->name('register.save');
 
@@ -47,6 +47,14 @@ Route::middleware('auth')->group(function () {
         Route::put('edit/{id}', 'update')->name('alternatifs.update');
         Route::delete('destroy/{id}', 'destroy')->name('alternatifs.destroy');
     });
+
+
+        // Route untuk Perhitungan
+        Route::get('/perhitungan', [PerhitunganController::class, 'perhitungan'])->name('perhitungan');
+        Route::get('/vektor', [PerhitunganController::class, 'vektor'])->name('vektor');
+        Route::get('/perangkingan', [PerhitunganController::class, 'perangkingan'])->name('perangkingan');
+
+    
 
     Route::get('/profile', [AuthController::class, 'profile'])->name('profile');
 });

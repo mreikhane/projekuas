@@ -22,8 +22,13 @@ class AlternatifController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_alternatif' => 'required|string|max:255',
-            'kode_alternatif' => 'required|string|max:255',
+            'kode' => 'required|string|max:255',
+            'nama' => 'required|string|max:255',
+            'fasilitas' => 'required|string|max:255',
+            'harga' => 'required|string|max:255',
+            'keamanan' => 'required|string|max:255',
+            'kebersihan' => 'required|string|max:255',
+            'jarak' => 'required|string|max:255',
         ]);
 
         Alternatif::create($request->all());
@@ -47,16 +52,26 @@ class AlternatifController extends Controller
 
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'nama_alternatif' => 'required|string|max:255',
-            'kode_alteratif' => 'required|string|max:255',
-        ]);
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'kode' => 'required|string|max:255',
+        'fasilitas' => 'required|string|max:255',
+            'harga' => 'required|string|max:255',
+            'keamanan' => 'required|string|max:255',
+            'kebersihan' => 'required|string|max:255',
+            'jarak' => 'required|string|max:255',
+    ]);
 
-        $alternatif = Alternatif::findOrFail($id);
-        $alternatif->update($request->all());
+    // Debugging data yang diterima
+    dd($request->all());
 
-        return redirect()->route('alternatifs.index')->with('success', 'Alternatif berhasil diperbarui');
+    $alternatif = Alternatif::findOrFail($id);
+    $alternatif->update($request->all());
+
+    return redirect()->route('alternatifs.index')->with('success', 'Alternatif berhasil diperbarui');
     }
+
+
 
     public function destroy(string $id)
     {

@@ -19,6 +19,11 @@
                 <th>No</th>
                 <th>Kode Alternatif</th>
                 <th>Nama Alternatif</th>
+                <th>Fasilitas</th>
+                <th>Harga</th>
+                <th>Keamanan</th>
+                <th>Kebersihan</th>
+                <th>Jarak</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -27,16 +32,20 @@
                 @foreach($alternatif as $item)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $item->kode_alternatif }}</td>
-                        <td class="align-middle">{{ $item->nama_alternatif }}</td>
+                        <td class="align-middle">{{ $item->kode }}</td>
+                        <td class="align-middle">{{ $item->nama }}</td>
+                        <td class="align-middle">{{ $item->fasilitas }}</td>
+                        <td class="align-middle">{{ $item->harga }}</td>
+                        <td class="align-middle">{{ $item->keamanan }}</td>
+                        <td class="align-middle">{{ $item->jarak }}</td>
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a href="{{ route('alternatifs.show', $item->id) }}" type="button" class="btn btn-secondary">Detail</a>
                                 <a href="{{ route('alternatifs.edit', $item->id)}}" type="button" class="btn btn-warning">Edit</a>
-                                <form action="{{ route('altrenatifs.destroy', $item->id) }}" method="POST" class="p-0" onsubmit="return confirm('Delete?')">
+                                <form action="{{ route('alternatifs.destroy', $item->id) }}" method="POST" class="p-0" onsubmit="return confirm('Delete?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger m-0">Delete</button>
+                                    <button class="btn btn-danger m-0   ">Delete</button>
                                 </form>
                             </div>
                         </td>

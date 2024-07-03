@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+
 
 class KriteriaController extends Controller
 {
@@ -32,9 +34,9 @@ class KriteriaController extends Controller
     {
         $request->validate([
             'nama_kriteria' => 'required|string|max:255',
-            'kode_kriteria' => 'required|string|max:255',
+            'kode' => 'required|string|max:255',
             'bobot' => 'required|string|max:255',
-            'description' => 'required|string',
+            'label' => 'required|string',
         ]);
 
         Kriteria::create($request->all());
@@ -69,9 +71,9 @@ class KriteriaController extends Controller
     {
         $request->validate([
             'nama_kriteria' => 'required|string|max:255',
-            'kode_kriteria' => 'required|string|max:255',
+            'kode' => 'required|string|max:255',
             'bobot' => 'required|string|max:255',
-            'description' => 'required|string',
+            'label' => 'required|string',
         ]);
 
         $kriteria = Kriteria::findOrFail($id);

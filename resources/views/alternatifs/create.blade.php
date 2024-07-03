@@ -10,11 +10,31 @@
         <div class="row">
             <div class="col mb-3">
                 <label class="form-label">Nama Alternatif</label>
-                <input type="text" name="nama_Alternatif" class="form-control" placeholder="Nama Alternatif" required>
+                <input type="text" name="nama" class="form-control" placeholder="Nama Alternatif" required>
             </div>
             <div class="col mb-3">
                 <label class="form-label">Kode Alternatif</label>
-                <input type="text" name="kode_alternatif" class="form-control" placeholder="Kode alternatif" required>
+                <input type="text" name="kode" class="form-control" placeholder="Kode alternatif" required>
+            </div>
+            <div class="col mb-3">
+                <label class="form-label">fasilitas</label>
+                <input type="text" name="fasilitas" class="form-control" placeholder="fasilitas" required>
+            </div>
+            <div class="col mb-3">
+                <label class="form-label">harga</label>
+                <input type="text" name="harga" class="form-control" placeholder="harga" required>
+            </div>
+            <div class="col mb-3">
+                <label class="form-label">keamanan</label>
+                <input type="text" name="keamanan" class="form-control" placeholder="keamanan" required>
+            </div>
+            <div class="col mb-3">
+                <label class="form-label">kebersihan</label>
+                <input type="text" name="kebersihan" class="form-control" placeholder="kebersihan" required>
+            </div>
+            <div class="col mb-3">
+                <label class="form-label">jarak</label>
+                <input type="text" name="jarak" class="form-control" placeholder="jarak" required>
             </div>
         </div>
         <div class="row">

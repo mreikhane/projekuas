@@ -29,10 +29,10 @@
                 @foreach($kriteria as $item)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $item->kode_kriteria }}</td>
+                        <td class="align-middle">{{ $item->kode }}</td>
                         <td class="align-middle">{{ $item->nama_kriteria }}</td>
                         <td class="align-middle">{{ $item->bobot }}</td>
-                        <td class="align-middle">{{ $item->description }}</td>  
+                        <td class="align-middle">{{ $item->label }}</td>  
                         <td class="align-middle">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <a href="{{ route('kriterias.show', $item->id) }}" type="button" class="btn btn-secondary">Detail</a>
