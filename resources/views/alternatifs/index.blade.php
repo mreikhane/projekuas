@@ -32,8 +32,8 @@
                 @foreach($alternatif as $item)
                     <tr>
                         <td class="align-middle">{{ $loop->iteration }}</td>
-                        <td class="align-middle">{{ $item->kode }}</td>
-                        <td class="align-middle">{{ $item->nama }}</td>
+                        <td class="align-middle">{{ $item->id_alternatif }}</td>
+                        <td class="align-middle">{{ $item->nama_alternatif }}</td>
                         <td class="align-middle">{{ $item->fasilitas }}</td>
                         <td class="align-middle">{{ $item->harga }}</td>
                         <td class="align-middle">{{ $item->keamanan }}</td>
